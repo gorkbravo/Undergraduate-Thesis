@@ -89,7 +89,7 @@ LICENSE                           # License file for the project
 *(Replace with an actual image once results are available.)*
 
 ### SABR Implied PDF
-![SABR PDF Visualization](resources/example_sabr_pdf.png)  
+![SABR PDF Visualization](resources/PDF SABR.png)  
 *(Replace with an actual image once results are available.)*
 
 ---
