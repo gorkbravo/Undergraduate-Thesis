@@ -1,6 +1,6 @@
 # Extraction and Analysis of Implied Probabilities in Commodity Options
 
-## Overview
+## Overview (This is a work in progress... tm)
 
 This repository contains the implementation for **Extraction and Analysis of Implied Probabilities in Commodity Options**, a final year project by **Gorka Bravo Díaz**. The project focuses on analyzing the oil market and extracting risk-neutral probabilities using commodity option data.
 
