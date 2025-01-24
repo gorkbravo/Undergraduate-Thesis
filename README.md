@@ -85,11 +85,11 @@ LICENSE                           # License file for the project
 ## Example Results
 
 ### Butterfly Spread Probability Visualization
-![Example Butterfly Visualization](resources/example_butterfly_plot.png)  
+![Example Butterfly Visualization](resources/Bfly_PDF.png)  
 *(Replace with an actual image once results are available.)*
 
 ### SABR Implied PDF
-![SABR PDF Visualization](resources/PDF SABR.png)  
+![SABR PDF Visualization](resources/PDF_SABR.png)  
 *(Replace with an actual image once results are available.)*
 
 ---
