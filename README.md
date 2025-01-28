@@ -2,7 +2,12 @@
 
 ## Overview (This is a work in progress... tm)
 
-This repository contains the implementation for **Extraction and Analysis of Implied Probabilities in Commodity Options**, a final year project by **Gorka Bravo Díaz**. The project focuses on analyzing the oil market and extracting risk-neutral probabilities using commodity option data.
+This repository contains the implementation for **Extraction and Analysis of Implied Probabilities in Commodity Options**, a final year project by **Gorka Bravo Díaz**. The project focuses on analyzing the oil market and extracting risk-neutral probabilities using commodity option data. 
+
+**IMPORTANT!** - The code, as is now, takes data from Yahoo Finance (the decision to use Yfinance was for protyping purposes) . This impies that it will only work with listed tickers. 
+  -Currenty working on implementing the actual data that is to be analysed
+  -Nevertheless, the code seems to be working on arbitrary tickers, so no reason to be believe that with some work it will work with WTI options data :)
+
 
 Key areas of exploration include:
 - Commodity options pricing frameworks (Black76  / Black-Scholes).
