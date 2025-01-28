@@ -24,7 +24,7 @@ scripts/                          # Python scripts for data processing and analy
 │   ├── SABR betas comp engine.py     # Runs SABR and loops over different betas, pick the one thank makes the most sense!
 │   ├── SABR engine.py                # SABR model calibration and implied PDF computation
 resources/                        # Additional resources (diagrams, images, etc.)
-│   ├── TFG CODE pipeline new status1.png  # Visual representation of the code pipeline
+│   ├── TFG CODE pipeline new status1.png  # Approximate flow chart representation of the code pipeline
 README.md                         # This README file
 LICENSE                           # License file for the project
 ```
