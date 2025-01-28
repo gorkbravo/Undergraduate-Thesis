@@ -8,7 +8,7 @@ This repository contains the implementation for **Extraction and Analysis of Imp
 
   -Currenty working on implementing the actual data that is to be analysed
   
-  -Nevertheless, the code seems to be working on arbitrary tickers, so no reason to be believe that with some work it will work with WTI options data :)
+  -Nevertheless, the code seems to be working on arbitrary tickers, so no reason to be believe that with some work it won't work with WTI options data :)
 
 
 Key areas of exploration include:
