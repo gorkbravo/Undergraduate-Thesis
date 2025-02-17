@@ -21,8 +21,8 @@ def main_pipeline():
         return
 
     # 1) Define separate subfolders for raw and cleaned options data
-    options_raw_folder = r"C:/Users/User/Desktop/UPF/TGF/Data/OptionsF/Raw"
-    options_cleaned_folder = r"C:/Users/User/Desktop/UPF/TGF/Data/OptionsF/Cleaned"
+    options_raw_folder = r"Add path to Raw Options Folder"
+    options_cleaned_folder = r"Add path to Cleaned Options Folder"
 
     # 2) List all .csv files in the RAW options folder
     option_files = glob.glob(os.path.join(options_raw_folder, "*.csv"))
@@ -63,7 +63,7 @@ def main_pipeline():
         print(f"Completed Option pipeline for {csv_file_collected}\n")
 
     # 8) Process futures in the same manner 
-    futures_folder = r"C:/Users/User/Desktop/UPF/TGF/Data/Futures"
+    futures_folder = r"Add path to the Futures data folder"
     futures_files = glob.glob(os.path.join(futures_folder, "*.csv"))
     print("Found the following futures CSV files:", futures_files)
 
