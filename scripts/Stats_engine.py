@@ -8,8 +8,8 @@ import statsmodels.api as sm
 # 1. Data Loading and Preparation
 # ---------------------------
 # Load the CSV files. (No need to parse dates since merging is by order.)
-stats_df = pd.read_csv('C:/Users/User/Desktop/UPF/TGF/Data/Stats/stats.csv')
-stats2_df = pd.read_csv('C:/Users/User/Desktop/UPF/TGF/Data/Stats/stats2.csv')
+stats_df = pd.read_csv('Add Path to "Stats.csv" file')
+stats2_df = pd.read_csv('Add Path to "Stats2.csv" file')
 
 # Reset the indices to ensure proper alignment.
 stats_df = stats_df.reset_index(drop=True)
