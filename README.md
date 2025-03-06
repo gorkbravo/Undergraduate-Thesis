@@ -1,21 +1,18 @@
 # Extraction and Analysis of Implied Probabilities in Commodity Options
 
-## Overview (This is a work in progress... tm)
+## Overview
 
-This repository contains the implementation for **Extraction and Analysis of Implied Probabilities in Commodity Options**, a final year project by **Gorka Bravo Díaz**. The project focuses on analyzing the oil market and extracting risk-neutral probabilities using commodity option data. 
+This repository contains the implementation for **Extraction and Analysis of Implied Probabilities in Commodity Options**, the final-year thesis project by **Gorka Bravo Díaz** at **Universitat Pompeu Fabra**. The project focuses on extracting risk-neutral probabilities from WTI crude oil options using the **Breeden-Litzenberger** approach and the **SABR** model.
 
-**IMPORTANT!** - The code, as is now, takes data from Yahoo Finance (the decision to use Yfinance was for protyping purposes) . This impies that it will only work with listed tickers.
+The study integrates options market data with the **WTI futures curve** to analyze how market structure influences the implied probability distribution and higher-order moments (variance, skewness, and kurtosis). This framework provides insights into market sentiment and potential risk management applications.
 
-  -Currenty working on implementing the actual data that is to be analysed
-  
-  -Nevertheless, the code seems to be working on arbitrary tickers, so no reason to be believe that with some work it won't work with WTI options data :)
+## Key Areas of Exploration
 
-
-Key areas of exploration include:
-- Commodity options pricing frameworks (Black76  / Black-Scholes).
-- Butterfly spreads as proxies for implied probability density functions.
-- Application of SABR volatility modeling to compute implied distributions.
-- Data collection, cleaning, and visualization pipelines.
+- Commodity options pricing frameworks (**Black-76 / Black-Scholes**)
+- **Butterfly spreads** as proxies for implied probability density functions
+- Application of **SABR volatility modeling** for implied distributions
+- Integration of **futures term structure analysis** with option-implied moments
+- **Data processing, cleaning, and visualization pipelines**
 
 ---
 
@@ -24,14 +21,15 @@ Key areas of exploration include:
 ```plaintext
 data/                             # Data files for the project
 scripts/                          # Python scripts for data processing and analysis
-│   ├── Main.py                       # Runs all the scripts sequentially
-│   ├── Data Collection Engine.py     # Collects SPY (for testing purposes) option chain data using yfinance
-│   ├── Data Cleaning Engine.py       # Cleans and preprocesses raw options data
-│   ├── Bflys engine.py               # Processes butterfly spreads to extract probabilities
-│   ├── SABR betas comp engine.py     # Runs SABR and loops over different betas, pick the one thank makes the most sense!
-│   ├── SABR engine.py                # SABR model calibration and implied PDF computation
+│   ├── Main.py                   # Main pipeline to run all scripts sequentially
+│   ├── Data_Cleaning_Engine.py   # Cleans and preprocesses raw options data
+│   ├── Bflys_engine.py           # Computes butterfly spreads and implied probabilities
+│   ├── SABR_betas_comp_engine.py # Runs SABR calibration over multiple beta values
+│   ├── SABR_engine.py            # SABR model calibration and implied PDF computation
+│   ├── Futures_curve.py          # Processes WTI futures curve data and computes indicators
+│   ├── Stats_engine.py           # Runs statistical analysis on computed probability distributions
 resources/                        # Additional resources (diagrams, images, etc.)
-│   ├── TFG CODE pipeline new status1.png  # Approximate flow chart representation of the code pipeline
+│   ├── pipeline_diagram.png      # Approximate flowchart of the code pipeline
 README.md                         # This README file
 LICENSE                           # License file for the project
 ```
@@ -40,63 +38,77 @@ LICENSE                           # License file for the project
 
 ## Features
 
-### 1. **Data Collection**
-- Collects real-time SPY (for example) option chain data using the `yfinance` library.
-- Identifies options expiring ~1 month from the current date.
+### 1. **Data Collection and Cleaning**
 
-### 2. **Data Cleaning**
-- Removes noise and irrelevant columns.
-- Filters invalid options data based on bid-ask spread and open interest thresholds.
-- Smooths midprices to improve modeling accuracy.
-- Removes market vols close to 0.
+- Filters invalid options based on **bid-ask spread, open interest, and implied volatility thresholds**
+- Applies **smoothing techniques** to improve data quality
 
-### 3. **Butterfly Spreads**
-- Constructs butterfly spreads from options data.
-- Computes implied probabilities and visualizes strike-probability relationships.
+### 2. **Butterfly Spread Construction**
 
-### 4. **SABR Volatility Modeling**
-- Calibrates the SABR model to observed market volatilities.
-- Extracts implied probability density functions (PDFs) from calibrated SABR parameters.
-- Evaluates distribution statistics (mean, variance, skewness, kurtosis).
+- Computes **butterfly spreads** from option market data
+- Estimates implied risk-neutral probability density functions (PDFs)
 
-### 5. **Visualization**
-- Comprehensive plotting of:
-  - Strike vs. Probability
-  - SABR Volatility Skew
-  - Risk-Neutral PDFs
+### 3. **SABR Volatility Modeling**
+
+- Calibrates the **SABR model** to observed option volatilities
+- Extracts **implied probability distributions** from calibrated parameters
+- Compares different **SABR beta values** to determine the best fit
+
+### 4. **Futures Curve Analysis**
+
+- Analyzes the **WTI futures curve** structure (contango vs. backwardation)
+- Computes a **term structure index** summarizing market conditions
+- Links futures curve structure to **option-implied probability moments**
+
+### 5. **Statistical Analysis**
+
+- Examines relationships between **futures market conditions and implied distributions**
+- Computes statistical measures (**mean, variance, skewness, kurtosis**) from option PDFs
+- Evaluates market regime shifts and structural changes in implied risk perceptions
 
 ---
 
 ## Installation
 
 ### Prerequisites
-- Python 3.8+
+
+- Python **3.8+**
 - Required Python libraries:
-  - `pandas`
-  - `numpy`
-  - `matplotlib`
-  - `scipy`
-  - `yfinance`
+  ```bash
+  pip install pandas numpy matplotlib scipy statsmodels
+  ```
 
 ### Steps
+
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/yourusername/commodity-options-analysis.git
    cd commodity-options-analysis
    ```
 
 2. Install dependencies:
-     ```bash
-     pip install -r requirements.txt
-     ```
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. Run the main pipeline:
+
+   ```bash
+   python Main.py
+   ```
+
+---
+
 ## Example Results
 
-### Butterfly Spread Probability Visualization
-![Example Butterfly Visualization](resources/Bfly_PDF.png)  
+### **SABR IV Fit**
 
 
-### SABR Implied PDF
-![SABR PDF Visualization](resources/PDF_SABR.png)  
+
+### **SABR-Implied Probability Density Function (PDF)**
+
 
 
 ---
@@ -104,12 +116,15 @@ LICENSE                           # License file for the project
 ## Citation
 
 If you use this project or its ideas, please cite:
-- "Extraction and Analysis of Implied Probabilities in Commodity Options", Gorka Bravo Díaz, Academic Year 2024-2025.
+
+- **"Extraction and Analysis of Implied Probabilities in Commodity Options"** – *Gorka Bravo Díaz, Universitat Pompeu Fabra, Academic Year 2024-2025.*
 
 ---
 
 ## License
 
 This project is licensed under the MIT License. See the `LICENSE` file for details.
+
+
 
 
