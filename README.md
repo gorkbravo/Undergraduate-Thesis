@@ -105,10 +105,10 @@ LICENSE                           # License file for the project
 
 ### **SABR IV Fit**
 
-
+![SABR PDF](resources/PDF_SABR.png)
 
 ### **SABR-Implied Probability Density Function (PDF)**
-
+![SABR PDF](resources/PDF_SABR.png)
 
 
 ---
